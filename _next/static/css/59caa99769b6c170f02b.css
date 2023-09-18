@@ -1,0 +1,722 @@
+.ant-notification {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    color: #fff;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    -webkit-font-feature-settings: "tnum", "tnum";
+    -moz-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
+    position: fixed;
+    z-index: 1010;
+    margin: 0 24px 0 0
+}
+
+.ant-notification-bottomLeft,
+.ant-notification-topLeft {
+    margin-right: 0;
+    margin-left: 24px
+}
+
+.ant-notification-bottomLeft .ant-notification-fade-appear.ant-notification-fade-appear-active,
+.ant-notification-bottomLeft .ant-notification-fade-enter.ant-notification-fade-enter-active,
+.ant-notification-topLeft .ant-notification-fade-appear.ant-notification-fade-appear-active,
+.ant-notification-topLeft .ant-notification-fade-enter.ant-notification-fade-enter-active {
+    -webkit-animation-name: NotificationLeftFadeIn;
+    animation-name: NotificationLeftFadeIn
+}
+
+.ant-notification-close-icon {
+    font-size: 14px;
+    cursor: pointer
+}
+
+.ant-notification-hook-holder,
+.ant-notification-notice {
+    position: relative;
+    width: 384px;
+    max-width: -webkit-calc(100vw - 24px * 2);
+    max-width: calc(100vw - 24px * 2);
+    margin-bottom: 16px;
+    margin-left: auto;
+    overflow: hidden;
+    word-wrap: break-word;
+    background: #ff0f7a;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05)
+}
+
+.ant-notification-bottomLeft .ant-notification-hook-holder,
+.ant-notification-bottomLeft .ant-notification-notice,
+.ant-notification-topLeft .ant-notification-hook-holder,
+.ant-notification-topLeft .ant-notification-notice {
+    margin-right: auto;
+    margin-left: 0
+}
+
+.ant-notification-hook-holder>.ant-notification-notice {
+    margin-bottom: 0;
+    box-shadow: none
+}
+
+.ant-notification-notice {
+    padding: 16px 24px;
+    line-height: 1.5715
+}
+
+.ant-notification-notice-message {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px
+}
+
+.ant-notification-notice-message-single-line-auto-margin {
+    display: block;
+    width: -webkit-calc(384px - 24px * 2 - 24px - 48px - 100%);
+    width: calc(384px - 24px * 2 - 24px - 48px - 100%);
+    max-width: 4px;
+    background-color: transparent;
+    pointer-events: none
+}
+
+.ant-notification-notice-message-single-line-auto-margin:before {
+    display: block;
+    content: ""
+}
+
+.ant-notification-notice-description {
+    font-size: 14px
+}
+
+.ant-notification-notice-closable .ant-notification-notice-message {
+    padding-right: 24px
+}
+
+.ant-notification-notice-with-icon .ant-notification-notice-message {
+    margin-bottom: 4px;
+    margin-left: 48px;
+    font-size: 16px
+}
+
+.ant-notification-notice-with-icon .ant-notification-notice-description {
+    margin-left: 48px;
+    font-size: 14px
+}
+
+.ant-notification-notice-icon {
+    position: absolute;
+    margin-left: 4px;
+    font-size: 24px;
+    line-height: 24px
+}
+
+.anticon.ant-notification-notice-icon-success {
+    color: #52c41a
+}
+
+.anticon.ant-notification-notice-icon-info {
+    color: #fff
+}
+
+.anticon.ant-notification-notice-icon-warning {
+    color: #faad14
+}
+
+.anticon.ant-notification-notice-icon-error {
+    color: #ff4d4f
+}
+
+.ant-notification-notice-close {
+    position: absolute;
+    top: 16px;
+    right: 22px;
+    color: rgba(0, 0, 0, .45);
+    outline: none
+}
+
+.ant-notification-notice-close:hover {
+    color: rgba(0, 0, 0, .67)
+}
+
+.ant-notification-notice-btn {
+    float: right;
+    margin-top: 16px
+}
+
+.ant-notification .notification-fade-effect {
+    -webkit-animation-duration: .24s;
+    animation-duration: .24s;
+    -webkit-animation-timing-function: cubic-bezier(.645, .045, .355, 1);
+    animation-timing-function: cubic-bezier(.645, .045, .355, 1);
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.ant-notification-fade-appear,
+.ant-notification-fade-enter {
+    opacity: 0;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused
+}
+
+.ant-notification-fade-appear,
+.ant-notification-fade-enter,
+.ant-notification-fade-leave {
+    -webkit-animation-duration: .24s;
+    animation-duration: .24s;
+    -webkit-animation-timing-function: cubic-bezier(.645, .045, .355, 1);
+    animation-timing-function: cubic-bezier(.645, .045, .355, 1);
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.ant-notification-fade-leave {
+    -webkit-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused
+}
+
+.ant-notification-fade-appear.ant-notification-fade-appear-active,
+.ant-notification-fade-enter.ant-notification-fade-enter-active {
+    -webkit-animation-name: NotificationFadeIn;
+    animation-name: NotificationFadeIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running
+}
+
+.ant-notification-fade-leave.ant-notification-fade-leave-active {
+    -webkit-animation-name: NotificationFadeOut;
+    animation-name: NotificationFadeOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running
+}
+
+@-webkit-keyframes NotificationFadeIn {
+    0% {
+        left: 384px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+@keyframes NotificationFadeIn {
+    0% {
+        left: 384px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes NotificationLeftFadeIn {
+    0% {
+        right: 384px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+@keyframes NotificationLeftFadeIn {
+    0% {
+        right: 384px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes NotificationFadeOut {
+    0% {
+        max-height: 150px;
+        margin-bottom: 16px;
+        opacity: 1
+    }
+    to {
+        max-height: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        opacity: 0
+    }
+}
+
+@keyframes NotificationFadeOut {
+    0% {
+        max-height: 150px;
+        margin-bottom: 16px;
+        opacity: 1
+    }
+    to {
+        max-height: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        opacity: 0
+    }
+}
+
+.ant-notification-rtl {
+    direction: rtl
+}
+
+.ant-notification-rtl .ant-notification-notice-closable .ant-notification-notice-message {
+    padding-right: 0;
+    padding-left: 24px
+}
+
+.ant-notification-rtl .ant-notification-notice-with-icon .ant-notification-notice-description,
+.ant-notification-rtl .ant-notification-notice-with-icon .ant-notification-notice-message {
+    margin-right: 48px;
+    margin-left: 0
+}
+
+.ant-notification-rtl .ant-notification-notice-icon {
+    margin-right: 4px;
+    margin-left: 0
+}
+
+.ant-notification-rtl .ant-notification-notice-close {
+    right: auto;
+    left: 22px
+}
+
+.ant-notification-rtl .ant-notification-notice-btn {
+    float: left
+}
+
+.TokenClaimInstructions_green__1GbpE {
+    color: #00ff73
+}
+
+.TokenClaimInstructions_token_description__3wOsZ {
+    text-align: left;
+    max-width: 800px;
+    margin: 50px auto 0;
+    font-weight: 400;
+    text-transform: none
+}
+
+.TokenClaimInstructions_token_description__3wOsZ h4 {
+    font-weight: 700;
+    font-size: 29px;
+    text-transform: uppercase;
+    margin-bottom: 12px
+}
+
+@media(max-width:768px) {
+    .TokenClaimInstructions_token_description__3wOsZ h4 {
+        font-size: 24px
+    }
+}
+
+.TokenClaimInstructions_token_description__3wOsZ a {
+    text-decoration: underline
+}
+
+.TokenClaimInstructions_token_description__3wOsZ ol,
+.TokenClaimInstructions_token_description__3wOsZ p,
+.TokenClaimInstructions_token_description__3wOsZ ul {
+    line-height: 28px;
+    font-size: 16px
+}
+
+@media(max-width:768px) {
+    .TokenClaimInstructions_token_description__3wOsZ ol,
+    .TokenClaimInstructions_token_description__3wOsZ p,
+    .TokenClaimInstructions_token_description__3wOsZ ul {
+        font-size: 16px;
+        line-height: 24px
+    }
+}
+
+.TokenClaimInstructions_token_description__3wOsZ ol {
+    padding-left: 18px
+}
+
+.TokenClaimInstructions_token_description__3wOsZ ol li {
+    list-style: decimal;
+    font-weight: 700
+}
+
+.TokenClaimInstructions_token_description__3wOsZ ol li a {
+    color: #28c5eb;
+    text-decoration: underline
+}
+
+.claim_green__1imlO {
+    color: #00ff73
+}
+
+.claim_claim__kfmo7 {
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    text-align: center;
+    padding: 170px 0 80px
+}
+
+@media(max-width:576px) {
+    .claim_claim__kfmo7 {
+        padding: 140px 0 60px
+    }
+}
+
+.claim_claim__kfmo7 .claim_loading__1niAg {
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: inline-flex
+}
+
+.claim_claim__kfmo7 .claim_loading__1niAg img {
+    max-width: 18px;
+    margin: 0 7px 0 0
+}
+
+.claim_claim__kfmo7 .claim_blocks__1HoHX {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+    max-width: 900px;
+    margin: 0 auto 30px
+}
+
+.claim_claim__kfmo7 .claim_blocks__1HoHX button {
+    padding: 0;
+    margin: 0;
+    background: 0 0;
+    border: 0
+}
+
+@media(max-width:992px) {
+    .claim_claim__kfmo7 .claim_blocks__1HoHX {
+        grid-template-columns: 1fr
+    }
+}
+
+.claim_claim__kfmo7 .claim_blocks__1HoHX .claim_block__2-VQO {
+    padding: 30px;
+    background: rgba(31, 25, 63, .9019607843137255);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid hsla(0, 0%, 100%, .10196078431372549);
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    min-height: 400px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.claim_claim__kfmo7 .claim_blocks__1HoHX .claim_block__2-VQO:hover {
+    background: #ff0f7a;
+    border-color: #ff0f7a
+}
+
+.claim_claim__kfmo7 .claim_blocks__1HoHX .claim_block__2-VQO:hover img {
+    -webkit-animation: claim_swing__21tpR 1s ease;
+    animation: claim_swing__21tpR 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1
+}
+
+.claim_claim__kfmo7 .claim_blocks__1HoHX .claim_block__2-VQO img {
+    margin: 0 auto 30px
+}
+
+.claim_claim__kfmo7 .claim_blocks__1HoHX .claim_block__2-VQO h4 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase
+}
+
+.claim_claim__kfmo7 .claim_blocks__1HoHX .claim_block__2-VQO h4 span {
+    display: block
+}
+
+.claim_claim_form__lmjCN {
+    position: relative;
+    z-index: 2;
+    width: 100%
+}
+
+.claim_claim_form_head__3Z1k5 {
+    margin-bottom: 40px;
+    font-weight: 700
+}
+
+.claim_claim_form_head__3Z1k5 h1 {
+    margin-bottom: 30px
+}
+
+@media(max-width:576px) {
+    .claim_claim_form_head__3Z1k5 h1 {
+        margin-bottom: 20px
+    }
+}
+
+.claim_claim_form_head__3Z1k5>div {
+    font-size: 24px
+}
+
+.claim_claim_form_head__3Z1k5>div.claim_address__2pvrC {
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    overflow: hidden;
+    text-transform: none;
+    border: 1px solid hsla(0, 0%, 100%, .10196078431372549);
+    max-width: 800px;
+    border-radius: 20px;
+    margin: 30px auto 0;
+    background: #12131d;
+    position: relative
+}
+
+.claim_claim_form_head__3Z1k5>div.claim_address__2pvrC p {
+    color: #ff0f7a;
+    word-break: break-all;
+    margin-bottom: 20px
+}
+
+.claim_claim_form_head__3Z1k5>div.claim_address__2pvrC>p:last-child {
+    margin-bottom: 0
+}
+
+.claim_claim_connect__3F5Np {
+    position: relative;
+    z-index: 2;
+    width: 100%
+}
+
+.claim_claim_connect__3F5Np h1 {
+    text-shadow: 0 0 10px rgba(58, 226, 209, .52);
+    margin-bottom: 80px;
+    text-transform: uppercase
+}
+
+@media(max-width:576px) {
+    .claim_claim_connect__3F5Np h1 {
+        margin-bottom: 50px
+    }
+}
+
+.claim_claim_content__jwQAv {
+    overflow: hidden;
+    padding: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    background: #12131d;
+    box-shadow: -48px 24px 168px -48px #00ff73, 56px -40px 152px -32px rgba(255, 1, 221, .72), 12px 12px 56px rgba(65, 183, 255, .72), 12px 12px 120px rgba(92, 92, 255, .8), 72px -72px 240px rgba(255, 1, 221, .16), -72px 72px 240px rgba(65, 183, 255, .16);
+    border-radius: 20px
+}
+
+@media(max-width:992px) {
+    .claim_claim_content__jwQAv {
+        padding: 30px
+    }
+}
+
+.claim_claim_content_weekly__3cEc4 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0 20px
+}
+
+@media(max-width:992px) {
+    .claim_claim_content_weekly__3cEc4 {
+        grid-template-columns: 1fr
+    }
+}
+
+.claim_claim_content_weekly__3cEc4>p {
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center
+}
+
+.claim_claim_content_item__3t0yq {
+    display: grid;
+    grid-template-columns: 1fr minmax(220px, auto);
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    text-align: left;
+    border: 1px solid hsla(0, 0%, 100%, .10196078431372549);
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 6px;
+    margin-bottom: 30px
+}
+
+@media(max-width:992px) {
+    .claim_claim_content_item__3t0yq {
+        text-align: center;
+        grid-template-columns: 1fr
+    }
+}
+
+.claim_claim_content_item_currency__3OwxK {
+    text-align: right;
+    background: #191a26
+}
+
+@media(max-width:992px) {
+    .claim_claim_content_item_currency__3OwxK {
+        text-align: center
+    }
+}
+
+.claim_claim_content_item_currency__3OwxK img {
+    margin-left: 19px
+}
+
+.claim_claim_content_item__3t0yq>div {
+    padding: 14px 20px
+}
+
+.claim_claim_content_item__3t0yq>div div {
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center
+}
+
+.claim_claim_content__jwQAv button {
+    width: 100%;
+    margin-top: 30px
+}
+
+.claim_claim_content__jwQAv button,
+.claim_claim_content__jwQAv button:disabled {
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center
+}
+
+.claim_claim_content__jwQAv button:disabled {
+    font-weight: 400
+}
+
+.claim_claim_content__jwQAv button:disabled,
+.claim_claim_content__jwQAv button:disabled:hover {
+    background: 0 0;
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, .0784313725490196)
+}
+
+.claim_claim_content__jwQAv .claim_description__3diQT {
+    font-weight: 700;
+    margin-top: 25px;
+    text-transform: uppercase
+}
+
+.claim_claim__kfmo7 img {
+    max-width: 100%
+}
+
+.claim_claim_mobile__2BRIb {
+    display: none
+}
+
+@media(max-width:992px) {
+    .claim_claim_desktop__TB_Vt {
+        display: none
+    }
+    .claim_claim_mobile__2BRIb {
+        display: block
+    }
+}
+
+@-webkit-keyframes claim_swing__21tpR {
+    15% {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px)
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px)
+    }
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px)
+    }
+    65% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px)
+    }
+    80% {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px)
+    }
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes claim_swing__21tpR {
+    15% {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px)
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px)
+    }
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px)
+    }
+    65% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px)
+    }
+    80% {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px)
+    }
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
